@@ -3,7 +3,7 @@ import Link from "next/link";
 async function getPosts() {
   const res = await fetch(`${process.env.BACKEND_URL}/wp-json/wp/v2/posts`, {
     next: {
-      revalidate: 0,
+      revalidate: 10,
     },
   });
 
@@ -13,12 +13,10 @@ async function getPosts() {
 
 export default async function Home() {
   const posts = await getPosts();
+
   return (
     <main className="p-10">
-      <div>
-        <h1 className="text-4xl">Posts</h1>
-        <Link href={"/posts"}>See all</Link>
-      </div>
+      <h1 className="text-4xl">Posts</h1>
       <br />
       <div className="flex flex-col gap-4">
         {posts.map((post: any) => {

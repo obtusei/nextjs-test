@@ -1,6 +1,7 @@
 {
   "name": "nextjs-test",
   "version": "0.1.0",
+  "description": "My Next.js project.",
   "private": true,
   "scripts": {
     "dev": "next dev",
